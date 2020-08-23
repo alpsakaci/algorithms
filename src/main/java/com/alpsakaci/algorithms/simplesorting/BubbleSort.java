@@ -1,17 +1,17 @@
 package com.alpsakaci.algorithms.simplesorting;
 
-class Bubble {
+class BubbleSortArray {
+	
 	private double[] arr;
 	private int numberOfItems;
 	
-	Bubble(int length) {
+	BubbleSortArray(int length) {
 		arr = new double[length];
 		numberOfItems = 0;
 	}
 	
 	public void insert(double value) {
-		arr[numberOfItems] = value;
-		numberOfItems++;
+		arr[numberOfItems++] = value;
 	}
 	
 	public void display() {
@@ -36,12 +36,13 @@ class Bubble {
 		arr[index1] = arr[index2];
 		arr[index2] = temp;
 	}
+	
 }
 
-public class BubbleSortApp {
+public class BubbleSort {
 
 	public static void main(String[] args) {
-		Bubble array = new Bubble(10);
+		BubbleSortArray array = new BubbleSortArray(10);
 		
 		array.insert(34);
 		array.insert(12);
@@ -53,7 +54,6 @@ public class BubbleSortApp {
 		array.display();
 		array.sort();
 		array.display();
-
 	}
-
+	
 }
