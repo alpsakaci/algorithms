@@ -42,9 +42,11 @@ class BracketChecker {
 			}
 		}
 		
-		if (!stack.isEmpty())
+		if (!stack.isEmpty()) {
 			System.out.println("Error: missing right delimiter");
-		
+			isCorrect = false;
+		}
+			
 		return isCorrect;
 	}
 
