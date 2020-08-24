@@ -1,11 +1,11 @@
 package com.alpsakaci.algorithms.simplesorting;
 
-class SelectionSortArray {
+class InsertionSortArray {
 
 	private double[] arr;
 	private int numberOfItems;
 
-	SelectionSortArray(int length) {
+	InsertionSortArray(int length) {
 		arr = new double[length];
 		numberOfItems = 0;
 	}
@@ -22,32 +22,24 @@ class SelectionSortArray {
 	}
 
 	public void sort() {
-		int i, j, min;
-
-		for (i = 0; i < numberOfItems - 1; i++) {
-			min = i;
-			for (j = i + 1; j < numberOfItems; j++) {
-				if (arr[j] < arr[min]) {
-					min = j;
-				}
+		int i, j;
+		for (i = 1; i < numberOfItems; i++) {
+			double temp = arr[i];
+			j = i;
+			while (j > 0 && arr[j - 1] >= temp) {
+				arr[j] = arr[j - 1];
+				j--;
 			}
-			if (i != min)
-				swap(i, min);
+			arr[j] = temp;
 		}
 	}
 
-	private void swap(int index1, int index2) {
-		double temp = arr[index1];
-		arr[index1] = arr[index2];
-		arr[index2] = temp;
-	}
-	
 }
 
-public class SelectionSort {
+public class InsertionSort {
 
 	public static void main(String[] args) {
-		SelectionSortArray array = new SelectionSortArray(10);
+		InsertionSortArray array = new InsertionSortArray(10);
 
 		array.insert(2);
 		array.insert(3);
