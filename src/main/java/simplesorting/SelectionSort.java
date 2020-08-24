@@ -1,11 +1,11 @@
-package com.alpsakaci.algorithms.simplesorting;
+package simplesorting;
 
-class BubbleSortArray {
+class SelectionSortArray {
 
 	private double[] arr;
 	private int numberOfItems;
 
-	BubbleSortArray(int length) {
+	SelectionSortArray(int length) {
 		arr = new double[length];
 		numberOfItems = 0;
 	}
@@ -22,19 +22,17 @@ class BubbleSortArray {
 	}
 
 	public void sort() {
-		for (int i = 0; i < numberOfItems - 1; i++) {
-			boolean hasChanged = false;
-			for (int j = 0; j < numberOfItems - i - 1; j++) {
-				if (arr[j] > arr[j + 1]) {
-					swap(j, j + 1);
-					hasChanged = true;
-				}
-				System.out.println("[i]: " + i + " [j]:" + j);
-			}
+		int i, j, min;
 
-			if (!hasChanged) {
-				return;
+		for (i = 0; i < numberOfItems - 1; i++) {
+			min = i;
+			for (j = i + 1; j < numberOfItems; j++) {
+				if (arr[j] < arr[min]) {
+					min = j;
+				}
 			}
+			if (i != min)
+				swap(i, min);
 		}
 	}
 
@@ -43,20 +41,20 @@ class BubbleSortArray {
 		arr[index1] = arr[index2];
 		arr[index2] = temp;
 	}
-
+	
 }
 
-public class BubbleSort {
+public class SelectionSort {
 
 	public static void main(String[] args) {
-		BubbleSortArray array = new BubbleSortArray(10);
+		SelectionSortArray array = new SelectionSortArray(10);
 
-		array.insert(34);
-		array.insert(12);
-		array.insert(1);
-		array.insert(17);
-		array.insert(44);
+		array.insert(2);
 		array.insert(3);
+		array.insert(1);
+		array.insert(5);
+		array.insert(6);
+		array.insert(4);
 
 		array.display();
 		array.sort();

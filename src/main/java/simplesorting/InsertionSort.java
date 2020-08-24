@@ -1,4 +1,4 @@
-package com.alpsakaci.algorithms.simplesorting;
+package simplesorting;
 
 class InsertionSortArray {
 
