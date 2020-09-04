@@ -26,6 +26,10 @@ class Heap {
 		return currentSize == 0;
 	}
 
+	public int getCurrentSize() {
+		return currentSize;
+	}
+
 	public void trickleUp(int index) {
 		int parent = (index - 1) / 2;
 		Node bottom = heapArray[index];
@@ -144,10 +148,8 @@ class Heap {
 public class HeapApp {
 
 	public static void main(String[] args) {
-		int value1, value2;
 		Heap heap = new Heap(31);
-		boolean success;
-		
+
 		heap.insert(70);
 		heap.insert(40);
 		heap.insert(50);
@@ -158,19 +160,32 @@ public class HeapApp {
 		heap.insert(30);
 		heap.insert(10);
 		heap.insert(90);
-		
+
 		heap.displayHeap();
-		
+
 		heap.remove();
 		heap.displayHeap();
-		
+
 		heap.insert(200);
 		heap.displayHeap();
-		
+
 		heap.change(0, 35);
 		heap.displayHeap();
 		heap.change(1, 15);
 		heap.displayHeap();
+
+//		heap sort
+		int heapSize = heap.getCurrentSize();
+		int sortedArray[] = new int[heapSize];
+
+		for (int i = 0; i < heapSize; i++)
+			sortedArray[i] = heap.remove().data;
+
+		System.out.print("Sorted array: ");
+
+		for (int i = 0; i < sortedArray.length; i++)
+			System.out.print(sortedArray[i] + " ");
+		System.out.println();
 	}
 
 }
