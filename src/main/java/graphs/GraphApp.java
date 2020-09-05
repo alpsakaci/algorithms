@@ -13,7 +13,7 @@ class Vertex {
 		this.label = label;
 		wasVisited = false;
 	}
-	
+
 }
 
 class Graph {
@@ -101,6 +101,31 @@ class Graph {
 		}
 	}
 
+	public void minSpanningTree() {
+		Stack<Integer> stack = new Stack<Integer>();
+		vertexList[0].wasVisited = true;
+		stack.push(0);
+
+		while (!stack.isEmpty()) {
+			int currentVertex = stack.peek();
+			int v = getAdjUnvisitedVertex(currentVertex);
+
+			if (v == -1) {
+				stack.pop();
+			} else {
+				vertexList[v].wasVisited = true;
+				stack.push(v);
+				displayVertex(currentVertex);
+				displayVertex(v);
+				System.out.print(" ");
+			}
+		}
+
+		for (int i = 0; i < nVerts; i++) {
+			vertexList[i].wasVisited = false;
+		}
+	}
+
 }
 
 public class GraphApp {
@@ -115,14 +140,24 @@ public class GraphApp {
 
 		graph.addEdge(0, 1);
 		graph.addEdge(0, 2);
+		graph.addEdge(0, 3);
+		graph.addEdge(0, 4);
+		graph.addEdge(1, 2);
 		graph.addEdge(1, 3);
 		graph.addEdge(1, 4);
+		graph.addEdge(2, 3);
+		graph.addEdge(2, 4);
+		graph.addEdge(3, 4);
 
 		System.out.print("DFS Visits: ");
 		graph.dfs();
 		System.out.println();
 		System.out.print("BFS Visits: ");
 		graph.bfs();
+		System.out.println();
+		
+		System.out.print("Minimum spanning tree: ");
+		graph.minSpanningTree();
 		System.out.println();
 
 	}
