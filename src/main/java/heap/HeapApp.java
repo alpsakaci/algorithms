@@ -160,7 +160,6 @@ public class HeapApp {
 		heap.insert(30);
 		heap.insert(10);
 		heap.insert(90);
-
 		heap.displayHeap();
 
 		heap.remove();
@@ -182,7 +181,6 @@ public class HeapApp {
 			sortedArray[i] = heap.remove().data;
 
 		System.out.print("Sorted array: ");
-
 		for (int i = 0; i < sortedArray.length; i++)
 			System.out.print(sortedArray[i] + " ");
 		System.out.println();
