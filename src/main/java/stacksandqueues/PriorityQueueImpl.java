@@ -19,17 +19,17 @@ class PriorityQueue {
 			queueArray[numberOfItems++] = value;
 		} else {
 			for (i = numberOfItems - 1; i >= 0; i--) {
-				if(value > queueArray[i]) {
-					queueArray[i+1] = queueArray[i];
+				if (value > queueArray[i]) {
+					queueArray[i + 1] = queueArray[i];
 				} else {
 					break;
 				}
 			}
-			queueArray[i+1] = value;
+			queueArray[i + 1] = value;
 			numberOfItems++;
 		}
 	}
-	
+
 	public double dequeue() {
 		return queueArray[--numberOfItems];
 	}
@@ -57,7 +57,7 @@ public class PriorityQueueImpl {
 		queue.enqueue(10);
 		queue.enqueue(40);
 		queue.enqueue(20);
-		
+
 		while (!queue.isEmpty()) {
 			double value = queue.dequeue();
 			System.out.print(value + " ");

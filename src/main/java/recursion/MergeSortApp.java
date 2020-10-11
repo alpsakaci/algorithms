@@ -55,13 +55,13 @@ class DArray {
 		while (lowPtr <= mid) {
 			workSpace[i++] = arr[lowPtr++];
 		}
-		
+
 		while (highPtr <= upperBound) {
 			workSpace[i++] = arr[highPtr++];
 		}
-		
-		for (i=0; i<n; i++) {
-			arr[lowerBound+i] = workSpace[i];
+
+		for (i = 0; i < n; i++) {
+			arr[lowerBound + i] = workSpace[i];
 		}
 	}
 

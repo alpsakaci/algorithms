@@ -22,7 +22,7 @@ class QuickSortArray {
 	}
 
 	public void quickSort() {
-		recQuickSort(0, numberOfItems-1);
+		recQuickSort(0, numberOfItems - 1);
 	}
 
 	public void recQuickSort(int left, int right) {

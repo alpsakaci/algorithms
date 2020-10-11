@@ -19,18 +19,18 @@ class InfixToPostfix {
 	public void gotOper(char opThis, int prec1) {
 		while (!stack.isEmpty()) {
 			char opTop = stack.pop();
-			
+
 			if (opTop == '(') {
 				stack.push(opTop);
 				break;
 			} else {
 				int prec2;
-				
+
 				if (opTop == '+' || opTop == '-')
 					prec2 = 1;
 				else
 					prec2 = 2;
-				
+
 				if (prec2 < prec1) {
 					stack.push(opTop);
 					break;
@@ -39,14 +39,14 @@ class InfixToPostfix {
 				}
 			}
 		}
-		
+
 		stack.push(opThis);
 	}
-	
+
 	public void gotParen(char ch) {
 		while (!stack.isEmpty()) {
 			char chx = stack.pop();
-			
+
 			if (chx == '(')
 				break;
 			else
@@ -80,41 +80,41 @@ class InfixToPostfix {
 				break;
 			}
 		}
-		
+
 		while (!stack.isEmpty()) {
 			stack.forEach(System.out::print);
 			System.out.println();
 			output = output + stack.pop();
 		}
-		
+
 		stack.forEach(System.out::print);
 		System.out.println();
-		
+
 		return output;
 	}
 
 }
 
 public class ExpressionParsing {
-	
+
 	public static String getString() throws IOException {
 		InputStreamReader streamReader = new InputStreamReader(System.in);
 		BufferedReader bufferedReader = new BufferedReader(streamReader);
-		
+
 		return bufferedReader.readLine();
 	}
 
 	public static void main(String[] args) throws IOException {
 		String input, output;
-		
+
 		while (true) {
 			System.out.println("Enter infix: ");
 			System.out.flush();
 			input = getString();
-			
+
 			if (input.equals(""))
 				break;
-			
+
 			InfixToPostfix parser = new InfixToPostfix(input);
 			output = parser.doTranslation();
 			System.out.println("Postfix: " + output);

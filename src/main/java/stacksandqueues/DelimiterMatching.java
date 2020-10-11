@@ -13,7 +13,7 @@ class BracketChecker {
 	public boolean check() {
 		Stack<Character> stack = new Stack<Character>();
 		boolean isCorrect = true;
-		
+
 		for (int i = 0; i < input.length(); i++) {
 			char ch = input.charAt(i);
 			switch (ch) {
@@ -31,8 +31,7 @@ class BracketChecker {
 						System.out.println("Error: " + ch + " at " + i);
 						isCorrect = false;
 					}
-				}
-				else {
+				} else {
 					System.out.println("Error: " + ch + " at " + i);
 					isCorrect = false;
 				}
@@ -41,12 +40,12 @@ class BracketChecker {
 				break;
 			}
 		}
-		
+
 		if (!stack.isEmpty()) {
 			System.out.println("Error: missing right delimiter");
 			isCorrect = false;
 		}
-			
+
 		return isCorrect;
 	}
 
@@ -56,7 +55,7 @@ public class DelimiterMatching {
 
 	public static void main(String[] args) {
 		BracketChecker checker = new BracketChecker("a{b(c[d]e)f}");
-		
+
 		System.out.println(checker.check());
 	}
 

@@ -155,7 +155,7 @@ public class GraphApp {
 		System.out.print("BFS Visits: ");
 		graph.bfs();
 		System.out.println();
-		
+
 		System.out.print("Minimum spanning tree: ");
 		graph.minSpanningTree();
 		System.out.println();

@@ -13,7 +13,7 @@ class Node {
 	public void displayNode() {
 		System.out.println("Data: " + data + " Hash: " + this.hashCode());
 	}
-	
+
 }
 
 class Tree {

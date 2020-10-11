@@ -57,7 +57,7 @@ class DirectedGraph {
 		}
 		nVerts--;
 	}
-	
+
 	public int noSuccessors() {
 		boolean isEdge;
 
