@@ -1,11 +1,11 @@
-package advancedsorting;
+package sorting;
 
-class QuickSortArray {
+class PartitionArray {
 
 	private double[] arr;
 	private int numberOfItems;
 
-	public QuickSortArray(int max) {
+	public PartitionArray(int max) {
 		arr = new double[max];
 		numberOfItems = 0;
 	}
@@ -14,27 +14,15 @@ class QuickSortArray {
 		arr[numberOfItems++] = value;
 	}
 
+	public int size() {
+		return numberOfItems;
+	}
+
 	public void display() {
 		for (int i = 0; i < numberOfItems; i++) {
 			System.out.print(arr[i] + " ");
 		}
 		System.out.println();
-	}
-
-	public void quickSort() {
-		recQuickSort(0, numberOfItems - 1);
-	}
-
-	public void recQuickSort(int left, int right) {
-		if (right - left <= 0) {
-			return;
-		} else {
-			double pivot = arr[right];
-
-			int partition = partitionIt(left, right, pivot);
-			recQuickSort(left, partition - 1);
-			recQuickSort(partition + 1, right);
-		}
 	}
 
 	public void swap(int index1, int index2) {
@@ -68,11 +56,12 @@ class QuickSortArray {
 
 }
 
-public class QuickSort {
+public class PartitionApp {
 
 	public static void main(String[] args) {
-		int maxSize = 8;
-		QuickSortArray arr = new QuickSortArray(maxSize);
+
+		int maxSize = 16;
+		PartitionArray arr = new PartitionArray(maxSize);
 
 		for (int i = 0; i < maxSize; i++) {
 			double value = (int) (Math.random() * 199);
@@ -80,7 +69,12 @@ public class QuickSort {
 		}
 
 		arr.display();
-		arr.quickSort();
+		double pivot = 100;
+		System.out.println("Pivot is " + pivot);
+
+		int size = arr.size();
+		int partitionIndex = arr.partitionIt(0, size - 1, pivot);
+		System.out.println("Partition at index: " + partitionIndex);
 		arr.display();
 	}
 

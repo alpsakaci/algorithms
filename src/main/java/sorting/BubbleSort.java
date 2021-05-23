@@ -1,11 +1,11 @@
-package simplesorting;
+package sorting;
 
-class SelectionSortArray {
+class BubbleSortArray {
 
 	private double[] arr;
 	private int numberOfItems;
 
-	SelectionSortArray(int length) {
+	BubbleSortArray(int length) {
 		arr = new double[length];
 		numberOfItems = 0;
 	}
@@ -22,17 +22,19 @@ class SelectionSortArray {
 	}
 
 	public void sort() {
-		int i, j, min;
-
-		for (i = 0; i < numberOfItems - 1; i++) {
-			min = i;
-			for (j = i + 1; j < numberOfItems; j++) {
-				if (arr[j] < arr[min]) {
-					min = j;
+		for (int i = 0; i < numberOfItems - 1; i++) {
+			boolean hasChanged = false;
+			for (int j = 0; j < numberOfItems - i - 1; j++) {
+				if (arr[j] > arr[j + 1]) {
+					swap(j, j + 1);
+					hasChanged = true;
 				}
+				System.out.println("[i]: " + i + " [j]:" + j);
 			}
-			if (i != min)
-				swap(i, min);
+
+			if (!hasChanged) {
+				return;
+			}
 		}
 	}
 
@@ -44,17 +46,17 @@ class SelectionSortArray {
 
 }
 
-public class SelectionSort {
+public class BubbleSort {
 
 	public static void main(String[] args) {
-		SelectionSortArray array = new SelectionSortArray(10);
+		BubbleSortArray array = new BubbleSortArray(10);
 
-		array.insert(2);
-		array.insert(3);
+		array.insert(34);
+		array.insert(12);
 		array.insert(1);
-		array.insert(5);
-		array.insert(6);
-		array.insert(4);
+		array.insert(17);
+		array.insert(44);
+		array.insert(3);
 
 		array.display();
 		array.sort();

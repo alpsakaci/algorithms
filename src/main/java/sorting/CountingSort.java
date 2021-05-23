@@ -1,4 +1,4 @@
-package simplesorting;
+package sorting;
 
 public class CountingSort {
 

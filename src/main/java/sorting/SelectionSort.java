@@ -1,11 +1,11 @@
-package simplesorting;
+package sorting;
 
-class InsertionSortArray {
+class SelectionSortArray {
 
 	private double[] arr;
 	private int numberOfItems;
 
-	InsertionSortArray(int length) {
+	SelectionSortArray(int length) {
 		arr = new double[length];
 		numberOfItems = 0;
 	}
@@ -22,24 +22,32 @@ class InsertionSortArray {
 	}
 
 	public void sort() {
-		int i, j;
-		for (i = 1; i < numberOfItems; i++) {
-			double temp = arr[i];
-			j = i;
-			while (j > 0 && arr[j - 1] >= temp) {
-				arr[j] = arr[j - 1];
-				j--;
+		int i, j, min;
+
+		for (i = 0; i < numberOfItems - 1; i++) {
+			min = i;
+			for (j = i + 1; j < numberOfItems; j++) {
+				if (arr[j] < arr[min]) {
+					min = j;
+				}
 			}
-			arr[j] = temp;
+			if (i != min)
+				swap(i, min);
 		}
+	}
+
+	private void swap(int index1, int index2) {
+		double temp = arr[index1];
+		arr[index1] = arr[index2];
+		arr[index2] = temp;
 	}
 
 }
 
-public class InsertionSort {
+public class SelectionSort {
 
 	public static void main(String[] args) {
-		InsertionSortArray array = new InsertionSortArray(10);
+		SelectionSortArray array = new SelectionSortArray(10);
 
 		array.insert(2);
 		array.insert(3);

@@ -1,4 +1,4 @@
-package advancedsorting;
+package sorting;
 
 class ArraySh {
 
